@@ -135,9 +135,9 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/robot_hunt_maze_node.cpp)
+ # add_executable(${PROJECT_NAME}_node src/robot_hunt_maze_node.cpp)
 
-add_executable(voice_creator src/voice_creator.cpp)
+ # add_executable(voice_creator_maze src/voice_creator.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -151,11 +151,11 @@ add_executable(voice_creator src/voice_creator.cpp)
 
 ## Specify libraries to link a library or executable target against
 
-add_dependencies(voice_creator ${PROJECT_NAME}_generate_messages_cpp)
-target_link_libraries(voice_creator
-  ${catkin_LIBRARIES} 
-  libmsc.so -ldl -pthread
-)
+ # add_dependencies(voice_creator_maze ${PROJECT_NAME}_generate_messages_cpp)
+ # target_link_libraries(voice_creator_maze
+ #   ${catkin_LIBRARIES} 
+ #   libmsc.so -ldl -pthread
+ # )
 
 #############
 ## Install ##

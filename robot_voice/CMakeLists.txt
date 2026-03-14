@@ -134,16 +134,21 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(voice_detector 
-  src/voice_detector.cpp
-  ifly_voice/speech_recognizer.c
-  ifly_voice/linuxrec.c)
+## 注释掉语音相关目标
+# add_executable(voice_detector 
+#   src/voice_detector.cpp
+#   ifly_voice/speech_recognizer.c
+#   ifly_voice/linuxrec.c)
+# add_dependencies(voice_detector ${PROJECT_NAME}_generate_messages_cpp)
 
 add_executable(robot_controller src/robot_controller.cpp)
 
-add_executable(robot_talker src/robot_talker.cpp)
+## 注释掉语音相关目标
+# add_executable(robot_talker src/robot_talker.cpp)
+# add_dependencies(robot_talker ${PROJECT_NAME}_generate_messages_cpp)
 
-add_executable(voice_creator src/voice_creator.cpp)
+## 注释掉语音相关目标
+# add_executable(voice_creator src/voice_creator.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -160,26 +165,29 @@ add_executable(voice_creator src/voice_creator.cpp)
 #   ${catkin_LIBRARIES}
 # )
 
-target_link_libraries(voice_detector
-  ${catkin_LIBRARIES} 
-  libmsc.so -ldl -lpthread -lm -lrt -lasound
-)
+## 注释掉语音相关链接
+# target_link_libraries(voice_detector
+#   ${catkin_LIBRARIES} 
+#   # libmsc.so -ldl -lpthread -lm -lrt -lasound
+# )
 
 add_dependencies(robot_controller ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(robot_controller
   ${catkin_LIBRARIES} 
 )
 
-target_link_libraries(robot_talker
-  ${catkin_LIBRARIES} 
-  libaikit.so
-)
+## 注释掉语音相关链接
+# target_link_libraries(robot_talker
+#   ${catkin_LIBRARIES} 
+#   # libaikit.so
+# )
 
-add_dependencies(voice_creator ${PROJECT_NAME}_generate_messages_cpp)
-target_link_libraries(voice_creator
-  ${catkin_LIBRARIES} 
-  libmsc.so -ldl -pthread
-)
+# add_dependencies(voice_creator ${PROJECT_NAME}_generate_messages_cpp)
+## 注释掉语音相关链接
+# target_link_libraries(voice_creator
+#   ${catkin_LIBRARIES} 
+#   # libmsc.so -ldl -pthread
+# )
 
 #############
 ## Install ##
